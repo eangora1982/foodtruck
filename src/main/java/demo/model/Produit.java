@@ -1,6 +1,7 @@
 package demo.model;
 
 import javax.persistence.Entity;
+import javax.persistence.*;
 import javax.persistence.Table;
 
 @Entity
@@ -18,7 +19,7 @@ public class Produit {
 	private String composition;
 	private int nbreVendu;
 	
-	
+	@Id
 	public int getIdProduit() {
 		return idProduit;
 	}

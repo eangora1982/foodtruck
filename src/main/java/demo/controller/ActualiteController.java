@@ -14,13 +14,13 @@ import demo.model.Actualite;
 import demo.repository.ActualiteRepository;
 
 @RestController
-@RequestMapping("/prod")
+@RequestMapping("/actualite")
 public class ActualiteController {
 	
 	@Autowired
 	private ActualiteRepository produitrepository;  
 
-	@GetMapping("infos")
+	@GetMapping("getAll")
 	public List<Actualite> All(){
 //		Produit p = new Produit(1,"banane","bon produit","mon.jpg","20/10/12","25/01/12",1);
 //		List<Produit> l = new ArrayList<Produit>();
@@ -28,7 +28,7 @@ public class ActualiteController {
 //		return l;
 		return produitrepository.findAll(); 
 	}
-	@GetMapping("byid")
+	@GetMapping("getbyid")
 	public Optional<Actualite> FindById(){
 //		Produit p = new Produit(1,"banane","bon produit","mon.jpg","20/10/12","25/01/12",1);
 //		List<Produit> l = new ArrayList<Produit>();
