@@ -4,7 +4,8 @@ import java.sql.Date;
 
 import javax.persistence.Entity;
 
-@Entity(name="catalogue")
+@Entity
+@Table(name="utilisateur")
 public class Utilisateur {
 	
 	private int idutilisateur;
@@ -12,6 +13,7 @@ public class Utilisateur {
 	private String prenom;
 	private Date datenaissance;
 	private String statut;
+	@ID
 	public int getIdutilisateur() {
 		return idutilisateur;
 	}

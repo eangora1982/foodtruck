@@ -3,10 +3,10 @@ package demo.model;
 import javax.persistence.Entity;
 import javax.persistence.*;
 
-@Entity(name="catalogue")
+@Entity(name="adresse")
 public class Adresse {
 	
-	private int id;
+	private int idadresse;
 	private Utilisateur utilisateur;
 	private int numerorue;
 	private int cp;
@@ -47,7 +47,7 @@ public class Adresse {
 	public Adresse(int id, Utilisateur utilisateur, int numerorue, int cp, Boolean isActif, String ville, String pays,
 			String typeadresse) {
 		super();
-		this.id = id;
+		this.idadresse = idadresse;
 		this.utilisateur = utilisateur;
 		this.numerorue = numerorue;
 		this.cp = cp;
@@ -55,11 +55,12 @@ public class Adresse {
 		this.ville = ville;
 		this.pays = pays;
 	}
-	public int getId() {
-		return id;
+	@Id
+	public int getIdadresse() {
+		return idadresse;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setIdadresse(int idadresse) {
+		this.idadresse = idadresse;
 	}
 	public Utilisateur getUtilisateur() {
 		return utilisateur;
@@ -99,7 +100,7 @@ public class Adresse {
 	}
 	@Override
 	public String toString() {
-		return "Adresse [id=" + id + ", utilisateur=" + utilisateur + ", numerorue=" + numerorue + ", cp=" + cp
+		return "Adresse [idadresse=" + idadresse + ", utilisateur=" + utilisateur + ", numerorue=" + numerorue + ", cp=" + cp
 				+ ", isActif=" + isActif + ", ville=" + ville + ", pays=" + pays + ", adresselivraison="
 				+ adresselivraison + ", adressefacturation=" + adressefacturation + "]";
 	}

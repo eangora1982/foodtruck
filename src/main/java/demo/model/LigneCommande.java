@@ -6,13 +6,21 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="produit")
+@Table(name="lignecommande")
 public class LigneCommande {
-	private int entetecommande;
-	private Utilisateur utilisateur;
-	private Date datecommande;
-	private int totalcommande;
-	private int numerofacture;
+	private int idlignecommande;
+	private Produit produit;
+	private int quantite;
+	private int prixunitaire;
+	private EnteteCommande entetecommande;
+
+//Constructeurs
+
+//Setters
+
+//To string
+
+
 	
 
 }

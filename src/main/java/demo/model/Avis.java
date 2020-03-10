@@ -3,7 +3,8 @@ package demo.model;
 import javax.persistence.Entity;
 import javax.persistence.*;
 
-@Entity(name="catalogue")
+@Entity
+@Table(name="avis")
 public class Avis {
 	
 	private int idavis;
@@ -16,6 +17,7 @@ public class Avis {
 		return "Avis [idavis=" + idavis + ", produit=" + produit + ", utlisateur=" + utlisateur + ", commentaire="
 				+ commentaire + ", note=" + note + "]";
 	}
+	@Id
 	public int getIdavis() {
 		return idavis;
 	}
