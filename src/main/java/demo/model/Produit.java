@@ -1,110 +1,165 @@
 package demo.model;
 
 import javax.persistence.Entity;
-import javax.persistence.*;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="produit")
+@Table(name = "Table_Catalogue_Produit")
 public class Produit {
-	private int idProduit;
-	private String libelleProduit;
-	private String libelleCommercial;
-	private int prix;
-	private String description;
-	private Boolean dispo;
-	private String imageUrl;
-	private String familleRepas;
-	private String stock;
-	private String composition;
-	private int nbreVendu;
-	
 	@Id
-	public int getIdProduit() {
-		return idProduit;
-	}
-	public void setIdProduit(int idProduit) {
-		this.idProduit = idProduit;
-	}
-	public String getLibelleProduit() {
-		return libelleProduit;
-	}
-	public void setLibelleProduit(String libelleProduit) {
-		this.libelleProduit = libelleProduit;
-	}
-	public String getLibelleCommercial() {
-		return libelleCommercial;
-	}
-	public void setLibelleCommercial(String libelleCommercial) {
-		this.libelleCommercial = libelleCommercial;
-	}
-	public int getPrix() {
-		return prix;
-	}
-	public void setPrix(int prix) {
-		this.prix = prix;
-	}
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	public Boolean getDispo() {
-		return dispo;
-	}
-	public void setDispo(Boolean dispo) {
-		this.dispo = dispo;
-	}
-	public String getImageUrl() {
-		return imageUrl;
-	}
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
-	}
-	public String getFamilleRepas() {
-		return familleRepas;
-	}
-	public void setFamilleRepas(String familleRepas) {
-		this.familleRepas = familleRepas;
-	}
-	public String getStock() {
-		return stock;
-	}
-	public void setStock(String stock) {
-		this.stock = stock;
-	}
-	public String getComposition() {
-		return composition;
-	}
-	public void setComposition(String composition) {
-		this.composition = composition;
-	}
-	public int getNbreVendu() {
-		return nbreVendu;
-	}
-	public void setNbreVendu(int nbreVendu) {
-		this.nbreVendu = nbreVendu;
-	}
-	public Produit(int idProduit, String libelleProduit, String libelleCommercial, int prix, String description,
-			Boolean dispo, String imageUrl, String familleRepas, String stock, String composition, int nbreVendu) {
-		super();
-		this.idProduit = idProduit;
-		this.libelleProduit = libelleProduit;
-		this.libelleCommercial = libelleCommercial;
-		this.prix = prix;
-		this.description = description;
-		this.dispo = dispo;
-		this.imageUrl = imageUrl;
-		this.familleRepas = familleRepas;
-		this.stock = stock;
-		this.composition = composition;
-		this.nbreVendu = nbreVendu;
-	}
+	@GeneratedValue
+	private int id_produit;
+
+	
+	@ManyToOne
+	@JoinColumn(name = "famille_repas_id")
+	private FamilleRepas familleRepas;
+	
+
+	private String libelle_produit_commerciale;
+	private String libelle_produit_technique;
+	private double prix;
+	private String description;
+	private String dispo;
+	private String imageUrl;
+	private double quantite;
+	private int stock;
+	private String composition;
+	private int nbrVente;
+
+
+
+	
+
 	public Produit() {
-		super();
 
 	}
 	
+	
+
+	public Produit(int id_produit, FamilleRepas familleRepas, String libelle_produit_commerciale,
+			String libelle_produit_technique, double prix, String description, String dispo, String imageUrl,
+			double quantite, int stock, String composition, int nbrVente) {
+		super();
+		this.id_produit = id_produit;
+		this.familleRepas = familleRepas;
+		this.libelle_produit_commerciale = libelle_produit_commerciale;
+		this.libelle_produit_technique = libelle_produit_technique;
+		this.prix = prix;
+		this.description = description;
+		this.dispo = dispo;
+		this.imageUrl = imageUrl;
+		this.quantite = quantite;
+		this.stock = stock;
+		this.composition = composition;
+		this.nbrVente = nbrVente;
+	}
+
+
+
+	public int getId_produit() {
+		return id_produit;
+	}
+
+	public void setId_produit(int id_produit) {
+		this.id_produit = id_produit;
+	}
+
+	public String getLibelle_produit_commerciale() {
+		return libelle_produit_commerciale;
+	}
+
+	public void setLibelle_produit_commerciale(String libelle_produit_commerciale) {
+		this.libelle_produit_commerciale = libelle_produit_commerciale;
+	}
+
+	public String getLibelle_produit_technique() {
+		return libelle_produit_technique;
+	}
+
+	public void setLibelle_produit_technique(String libelle_produit_technique) {
+		this.libelle_produit_technique = libelle_produit_technique;
+	}
+
+	public double getPrix() {
+		return prix;
+	}
+
+	public void setPrix(double prix) {
+		this.prix = prix;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String isDispo() {
+		return dispo;
+	}
+
+	public void setDispo(String dispo) {
+		this.dispo = dispo;
+	}
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
+	public double getQuantite() {
+		return quantite;
+	}
+
+	public void setQuantite(double quantite) {
+		this.quantite = quantite;
+	}
+
+	public int getStock() {
+		return stock;
+	}
+
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
+
+	public String getComposition() {
+		return composition;
+	}
+
+	public void setComposition(String composition) {
+		this.composition = composition;
+	}
+
+	public int getNbrVente() {
+		return nbrVente;
+	}
+
+	public void setNbrVente(int nbrVente) {
+		this.nbrVente = nbrVente;
+	}
+
+	public FamilleRepas getFamilleRepas() {
+		return familleRepas;
+	}
+
+	public void setFamilleRepas(FamilleRepas familleRepas) {
+		this.familleRepas = familleRepas;
+	}
+
+	public String getDispo() {
+		return dispo;
+	}
+
 
 }

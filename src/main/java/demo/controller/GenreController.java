@@ -1,4 +1,5 @@
 package demo.controller;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,28 +12,28 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import demo.model.User;
-import demo.repository.UserRepository;
+import demo.model.Genre;
+import demo.repository.GenreRepository;
 
 
 
 @RestController
-@RequestMapping("/users")
-public class UserController {
-
+@RequestMapping("/genre")
+public class GenreController {
+	
 	@Autowired
-	private UserRepository us;
-
-	@GetMapping("/listUser")
-	public ResponseEntity<List<User>> findAll() {
-		List<User> liste = us.findAll();
-		return new ResponseEntity<List<User>>(liste, new HttpHeaders(), HttpStatus.OK);
+	private GenreRepository gs;
+	
+	@GetMapping("/listGenre")
+	public ResponseEntity<List<Genre>> findAll() {
+		List<Genre> list = gs.findAll();
+		return new ResponseEntity<List<Genre>>(list, new HttpHeaders(), HttpStatus.OK);
 	}
-
-	@PostMapping("/createUser")
-	public ResponseEntity<User> createOrUpdate(@RequestBody User u) {
-		User updated = us.save(u);
-		return new ResponseEntity<User>(updated, new HttpHeaders(), HttpStatus.OK);
+	
+	@PostMapping("/createGenre")
+	public ResponseEntity<Genre> createOrUpdate(@RequestBody Genre g) {
+		Genre updated = gs.save(g);
+		return new ResponseEntity<Genre>(updated, new HttpHeaders(), HttpStatus.OK);	
 	}
 
 }

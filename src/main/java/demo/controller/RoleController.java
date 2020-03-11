@@ -1,4 +1,5 @@
 package demo.controller;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,28 +12,28 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import demo.model.User;
-import demo.repository.UserRepository;
+import demo.model.Role;
+import demo.repository.RoleRepository;
 
 
 
 @RestController
-@RequestMapping("/users")
-public class UserController {
-
+@RequestMapping("/role")
+public class RoleController {
+	
 	@Autowired
-	private UserRepository us;
-
-	@GetMapping("/listUser")
-	public ResponseEntity<List<User>> findAll() {
-		List<User> liste = us.findAll();
-		return new ResponseEntity<List<User>>(liste, new HttpHeaders(), HttpStatus.OK);
+	private RoleRepository rs;
+	
+	@GetMapping("/listRole")
+	public ResponseEntity<List<Role>> findAll() {
+		List<Role> list = rs.findAll();
+		return new ResponseEntity<List<Role>>(list, new HttpHeaders(), HttpStatus.OK);
 	}
-
-	@PostMapping("/createUser")
-	public ResponseEntity<User> createOrUpdate(@RequestBody User u) {
-		User updated = us.save(u);
-		return new ResponseEntity<User>(updated, new HttpHeaders(), HttpStatus.OK);
+	
+	@PostMapping("/createRole")
+	public ResponseEntity<Role> createOrUpdate(@RequestBody Role r) {
+		Role updated = rs.save(r);
+		return new ResponseEntity<Role>(updated, new HttpHeaders(), HttpStatus.OK);	
 	}
 
 }
