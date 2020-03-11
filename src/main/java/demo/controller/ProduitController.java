@@ -38,7 +38,7 @@ public class ProduitController {
 
 		a.setId_produit(1);
 		a.setImageUrl(
-				"https://img2.freepng.fr/20180620/jxa/kisspng-vittel-mineral-water-drinking-water-perrier-acqua-panna-5b2a5e56f3ed17.0223030615295033189991.jpg");
+		"https://img2.freepng.fr/20180620/jxa/kisspng-vittel-mineral-water-drinking-water-perrier-acqua-panna-5b2a5e56f3ed17.0223030615295033189991.jpg");
 		a.setLibelle_produit_commerciale("Vittel eau de source");
 		a.setLibelle_produit_technique("Eau de source de Montagne venu du fin fond de l'Himalaya");
 		a.setPrix(32.2);
@@ -60,5 +60,10 @@ public class ProduitController {
 		productRepo.save(a);
 
 	}
+	
+	 @GetMapping("/getAll")
+	    public List<Produit> getAllProduit() {
+	        return productRepo.findAll();
+	    }
 
 }
