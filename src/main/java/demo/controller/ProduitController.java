@@ -39,14 +39,14 @@ public class ProduitController {
 		a.setId_produit(1);
 		a.setImageUrl(
 		"https://img2.freepng.fr/20180620/jxa/kisspng-vittel-mineral-water-drinking-water-perrier-acqua-panna-5b2a5e56f3ed17.0223030615295033189991.jpg");
-		a.setLibelle_produit_commerciale("Vittel eau de source");
-		a.setLibelle_produit_technique("Eau de source de Montagne venu du fin fond de l'Himalaya");
+		a.setLibelle_produit_commerciale("Attieke");
+		a.setLibelle_produit_technique("La semoule de manioc à consommer avec modération");
 		a.setPrix(32.2);
 		a.setStock(25);
 		a.setQuantite(2);
 		a.setNbrVente(25);
-		a.setDescription("Eau de source pur comme de l'eau");
-		a.setComposition("Un atome d’oxygène relié à deux atomes d’hydrogène");
+		a.setDescription("De la bonne nourriture");
+		a.setComposition("Attieke à la sauce graine");
 		a.setDispo("1");
 		a.setFamilleRepas(fr1);
 		maliste.add(a);
@@ -64,6 +64,12 @@ public class ProduitController {
 	 @GetMapping("/getAll")
 	    public List<Produit> getAllProduit() {
 	        return productRepo.findAll();
+	    }
+	 
+
+	 @GetMapping("/getAll2")
+	    public List<FamilleRepas> getAllFamilleRepas() {
+	        return frepasRepo.findAll();
 	    }
 
 }
